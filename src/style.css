@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
 
 *,
 *::before,
@@ -11,18 +10,18 @@
 }
 
 :root {
+  --bg-color-0: #000000;
   --bg-color-1: #111111;
   --bg-color-2: #232323;
   --bg-color-3: #343434;
 
   --shadow-color: #7a7a7a;
-
   --accent-color: #ffd60a;
 }
 
 body {
   background-color: var(--bg-color-1);
-  
+
   color: lightgrey;
   font-family: "Inter", serif;
   font-size: 1.2rem;
@@ -38,8 +37,6 @@ header {
   display: flex;
   justify-content: center;
 
-  /* padding: 4rem 1rem 2rem 1rem; */
-
   position: relative;
   overflow-x: hidden;
 
@@ -47,7 +44,7 @@ header {
     background-color: var(--bg-color-2);
     width: 100%;
     height: 100%;
-    
+
     position: absolute;
     z-index: -1;
 
@@ -68,18 +65,18 @@ header {
 
     & > div:first-of-type {
       position: relative;
-  
+
       & > h2 {
         position: absolute;
         bottom: -4rem;
         right: 0;
-  
+
         font-size: 6rem;
         color: var(--accent-color);
         font-family: "Pinyon Script", serif;
         text-shadow: 0 -2.5rem var(--shadow-color);
       }
-  
+
       & > img {
         width: 300px;
         height: auto;
@@ -88,7 +85,7 @@ header {
         transform: scale(1.2);
       }
     }
-  
+
     & > div:last-of-type {
       padding: 2rem;
 
@@ -106,7 +103,7 @@ header {
       & > div {
         margin-top: 1rem;
         margin-right: 2rem;
-        
+
         background-color: #23232366;
         padding: 1rem 1.5rem 0.8rem;
         width: fit-content;
@@ -164,7 +161,7 @@ main {
       }
 
       & > img {
-        width: 100%;
+        width: auto;
         height: 300px;
         object-fit: cover;
 
@@ -184,16 +181,18 @@ main {
 footer {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   gap: 2rem;
-  
+
   padding: 4rem;
   margin-top: 4rem;
   background-color: var(--bg-color-2);
 
   & > img {
-    width: 600px;
+    width: clamp(300px, 50%, 500px);
     height: auto;
     border-radius: 10px;
+    opacity: 0.8;
   }
 
   & > section {
@@ -206,7 +205,7 @@ footer {
     }
 
     & > p {
-      width: 40ch;
+      max-width: 30ch;
       line-height: 1.5;
     }
 
@@ -234,7 +233,7 @@ footer {
 
       display: flex;
       align-items: center;
-      gap: 1rem; 
+      gap: 1rem;
     }
   }
 }
@@ -244,7 +243,7 @@ footer {
 }
 
 .tag:hover {
-  color: var(--accent-color)
+  color: var(--accent-color);
 }
 
 .tag::before {
@@ -260,4 +259,96 @@ footer {
 .icon:hover {
   color: var(--accent-color);
   transform: scale(1.1);
+}
+
+@media (max-width: 1200px) {
+  header {
+    & > section {
+      margin: 8rem 1rem;
+
+      & > div:first-of-type {
+        transform: translate(15%, -30%) scale(1);
+
+        & > img {
+          transform: scale(1);
+        }
+
+        & > h2 {
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+
+    & > img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  header {
+    & > div {
+      position: absolute;
+      z-index: -1;
+
+      transform-origin: 0 100%;
+      transform: rotate(-8deg) scale(1.5);
+    }
+
+    & > section {
+      flex-direction: column;
+
+      margin: 6rem 1rem;
+
+      & > div:first-of-type {
+        transform: scale(1);
+
+        width: max-content;
+
+        & > img {
+          width: 200px;
+          transform: scale(1.4);
+        }
+
+        & > h2 {
+          right: -40%;
+          bottom: -40%;
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  footer {
+    padding: 2rem;
+  }
+
+  main {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  footer {
+    padding: 2rem 1rem;
+
+    & > section {
+      & > div:nth-of-type(2) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  main {
+    padding: 2rem 0.8rem;
+  }
 }
