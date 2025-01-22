@@ -50,6 +50,8 @@ header {
 
     transform-origin: 0 100%;
     transform: rotate(-8deg) scale(1.2);
+
+    animation: tilt 1.5s;
   }
 
   & > section {
@@ -75,6 +77,8 @@ header {
         color: var(--accent-color);
         font-family: "Pinyon Script", serif;
         text-shadow: 0 -2.5rem var(--shadow-color);
+
+        animation: riseup 1.5s;
       }
 
       & > img {
@@ -83,6 +87,8 @@ header {
         border-radius: 10px;
         opacity: 0.6;
         transform: scale(1.2);
+
+        animation: enlarge 1.5s;
       }
     }
 
@@ -175,6 +181,12 @@ main {
         padding: 0 0.5rem;
       }
     }
+
+    & > div:hover {
+      background-color: var(--bg-color-3);
+      transform: scale(1.01);
+      transition: transform 0.3s;
+    }
   }
 }
 
@@ -259,6 +271,7 @@ footer {
 .icon:hover {
   color: var(--accent-color);
   transform: scale(1.1);
+  transition: transform 0.2s;
 }
 
 @media (max-width: 1200px) {
@@ -350,5 +363,35 @@ footer {
 
   main {
     padding: 2rem 0.8rem;
+  }
+}
+
+@keyframes riseup {
+  from {
+    text-shadow: 0 0 var(--shadow-color);
+  }
+
+  to {
+    text-shadow: 0 -2.5rem var(--shadow-color);
+  }
+}
+
+@keyframes enlarge {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes tilt {
+  from {
+    transform: scale(1.2);
+  }
+
+  to {
+    transform: rotate(-8deg) scale(1.2);
   }
 }
